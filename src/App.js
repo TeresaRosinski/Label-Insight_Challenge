@@ -2,10 +2,11 @@ import "./App.css";
 import React, { useState } from "react";
 import useLocalStorage from "react-use-localstorage";
 import Axios from "axios";
-import ImageComponent from "./imageComponent.js";
+import ImageComponent from "./components/ImageComponent.js";
 
 function App() {
   let [imageInfo, setImageInfo] = useState([]);
+
   const getImages = async () => {
     try {
       let response = await Axios.get(
@@ -18,8 +19,6 @@ function App() {
   };
   getImages();
   const displayedImageArray = imageInfo;
-
-  const [item, setItem] = useLocalStorage("name", "Initial Value");
 
   const [showModal, setShowModal] = useState(false);
   const openModal = () => setShowModal(!showModal);

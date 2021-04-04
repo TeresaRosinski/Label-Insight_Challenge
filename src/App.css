@@ -28,7 +28,6 @@ h1 {
   height: 100%;
   width: 100%;
 }
-
 .modalBackground {
   position: absolute;
   top: 0;
@@ -59,7 +58,6 @@ h1 {
   width: 100%;
   justify-content: space-between;
 }
-
 .modalContent input {
   margin-top: 2%;
 }
@@ -71,5 +69,9 @@ h1 {
   font-size: 300%;
 }
 .titleAndInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   padding-left: 3%;
+  height: 100%;
 }

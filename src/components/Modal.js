@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+
+/* useStateWithLocalStorage is a function I found researching how to use localStorage. I don't completely understand how it functions, yet. And it is not yet working as intended. Currently the modal is not populating with data unqiue to each thumbanil. Rather the modal is populating, I believe based on which thumbnail was clicked first. */
 
 const useStateWithLocalStorage = (props) => {
   let [value, setValue] = React.useState(localStorage.getItem(props.id) || "");
@@ -9,8 +11,9 @@ const useStateWithLocalStorage = (props) => {
 
   return [value, setValue];
 };
+
 const Modal = (props) => {
-  let [value, setValue] = useStateWithLocalStorage("props.id");
+  let [value, setValue] = useStateWithLocalStorage(props.id);
 
   function closeModal(e) {
     props.setShowModal(false);
@@ -24,7 +27,7 @@ const Modal = (props) => {
         <div className="modalBackground">
           <div className="modalContent" onClick={(e) => e.stopPropagation()}>
             <img src={props.url}></img>
-            <div className="title">
+            <div className="titleAndInput">
               <p className="closeSymbol" onClick={closeModal}>
                 &times;
               </p>
